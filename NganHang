@@ -1,0 +1,98 @@
+package javaapplication111;
+
+import java.text.NumberFormat;
+import java.util.Locale;
+
+
+public class NganHang  {
+
+    public long soTaiKhoan;
+    public String tenTaiKhoan;
+    public  double tienTrongTK;
+     public String trangThai;
+        
+    // Constructor mặc định
+    public  NganHang() {
+        this.soTaiKhoan = 999999;
+        this.tenTaiKhoan = "Chưa xác định";
+        this.tienTrongTK = 50.0;
+        this.trangThai = "";
+    }
+
+   
+
+
+    // Constructor 3 tham số
+    public NganHang (int soTaiKhoan, String tenTaiKhoan, double tienTrongTK) {
+        setSoTaiKhoan(soTaiKhoan);
+        setTenTaiKhoan(tenTaiKhoan);
+        setTienTrongTK(tienTrongTK);
+        this.trangThai = "";
+    }
+    // Phương thức get SoTaiKhoan
+    // Phương thức get SoTaiKhoan
+    public long getSoTaiKhoan() {
+        return soTaiKhoan;
+    }
+
+    // Phương thức set SoTaiKhoan
+    public void setSoTaiKhoan(int soTaiKhoan) {
+        if (soTaiKhoan <= 0 || soTaiKhoan == 999999) {
+            this.soTaiKhoan = 999999;
+            this.trangThai = "Giá trị của số tài khoản không hợp lệ, sử dụng giá trị mặc định.";
+        } else {
+            this.soTaiKhoan = soTaiKhoan;
+        }
+    }
+
+    // Phương thức get TenTaiKhoan
+    public String getTenTaiKhoan() {
+        return tenTaiKhoan;
+    }
+
+    // Phương thức set TenTaiKhoan
+    public void setTenTaiKhoan(String tenTaiKhoan) {
+        if (tenTaiKhoan == null || tenTaiKhoan.isEmpty()) {
+            this.tenTaiKhoan = "chưa xác định";
+            this.trangThai = "Giá trị của tên tài khoản không hợp lệ, sử dụng giá trị mặc định.";
+        } else {
+            this.tenTaiKhoan = tenTaiKhoan;
+        }
+    }
+
+    // Phương thức get TienTrongTK
+    public double getTienTrongTK() {
+        return tienTrongTK;
+    }
+
+    // Phương thức set TienTrongTK
+    public void setTienTrongTK(double tienTrongTK) {
+        if (tienTrongTK < 50) {
+            this.tienTrongTK = 50;
+            this.trangThai = "Giá trị của số tiền trong tài khoản không hợp lệ, sử dụng giá trị mặc định.";
+        } else {
+            this.tienTrongTK = tienTrongTK;
+        }
+    }
+
+    // Phương thức get TrangThai
+    public String getTrangThai() {
+        return this.trangThai;
+    }
+       // Phương thức set TrangThai
+    public void setTrangThai(String trangThai) {
+        this.trangThai = trangThai;
+    }
+    public String toString() {
+    Locale local = new Locale("vi", "vn");
+    NumberFormat formatter = NumberFormat.getCurrencyInstance(local);
+    return "So tai khoan: " + this.soTaiKhoan + "\n"
+            + "Ten tai khoan: " + this.tenTaiKhoan + "\n"
+            + "So du: " + formatter.format(this.tienTrongTK) + "\n"
+            + " Trang Thai" + this.trangThai;
+}
+
+    
+
+
+}
