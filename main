@@ -1,0 +1,26 @@
+package javaapplication111;
+import java.util.Scanner;
+import javaapplication111.NganHang;
+
+public class Mainchin {
+
+public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    // Nhập thông tin cho tài khoản
+    System.out.print("Nhap So TAi Khoan: ");
+    int soTaiKhoan = scanner.nextInt();
+    scanner.nextLine(); // Bỏ qua ký tự newline trong bộ đệm
+    System.out.print("Nhap Ten Tai Khoan: ");
+    String tenTaiKhoan = scanner.nextLine();
+    System.out.print("Nhap so Tien Trong Tai Khoan : ");
+    double tienTrongTaiKhoan = scanner.nextDouble();
+
+    // Tạo đối tượng tài khoản từ thông tin đã nhập
+    NganHang tk = new NganHang(soTaiKhoan, tenTaiKhoan, tienTrongTaiKhoan);
+
+    // In thông tin tài khoản
+    System.out.println(tk);
+}
+
+}
